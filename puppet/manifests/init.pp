@@ -34,7 +34,15 @@ class { "rubybuild":
 }
 file { '/usr/bin/ruby':
   ensure => 'link',
-  target => '/opt/ruby/bin/ruby', # Was ist mit den anderen Tools in /opt/ruby/bin?s
+  target => '/opt/ruby/bin/ruby', # Was ist mit den anderen Tools in /opt/ruby/bin? (erb)
+}
+file { '/usr/bin/gem':
+  ensure => 'link',
+  target => '/opt/ruby/bin/gem',
+}
+file { '/usr/bin/irb':
+  ensure => 'link',
+  target => '/opt/ruby/bin/irb',
 }
 
 
