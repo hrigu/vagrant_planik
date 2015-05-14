@@ -27,9 +27,14 @@ Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin"
 
 # Es gab folgenden Fehler: Error: Unknown function ensure_packages at /tmp/vagrant-puppet/modules-33ebedc53dc8bbda276f80f73ef8a26c/gcc/manifests/init.pp:17 on node vagrant-ubuntu-trusty-64.fritz.box
 # -> auskommentiert modules/gcc/manifests/init.pp ensure...
+
+# Installiert es unter /opt/2.2.2 und macht einen /opt/ruby link auf /opt/2.2.2
 class { "rubybuild":
   ruby_version => "2.2.2",
-
+}
+file { '/usr/bin/ruby':
+  ensure => 'link',
+  target => '/opt/ruby/bin/ruby', # Was ist mit den anderen Tools in /opt/ruby/bin?s
 }
 
 
