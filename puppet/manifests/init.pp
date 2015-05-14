@@ -8,17 +8,31 @@ exec { 'apt_update':
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin", "/usr/local/sbin", "~/.composer/vendor/bin/" ] }
 
 
-class { 'git::install': }
-
 # ruby
 # puppet module install puppetlabs-ruby
 # git submodule add https://github.com/puppetlabs/puppetlabs-ruby.git puppet/modules/ruby
 # Installiert ruby in /usr/bin/ruby2.0. Den Symlin /usr/bin/ruby zeigt aber immer noch auf die alte ruby1.9.1 version...
 # Musste das manuell ändern.
-class { 'ruby':
-  version         => '2.0.0', # Höher auf Ubuntu nicht mögich, sieh ruby/manifests/init.pp
-#  gems_version    => '2.1.6',
+# class { 'ruby':
+#   version         => '2.0.0', # Höher auf Ubuntu nicht mögich, sieh ruby/manifests/init.pp
+#  gems_version    => '2.0.0',
+# }
+
+# zu viele Abhängigkeiten
+# puppet module install --modulepath /path/to/puppet/modules jdowning-rbenv
+# git submodule add https://github.com/justindowning/puppet-rbenv.git puppet/modules/rbenv
+# class { 'rbenv': }
+
+
+
+# Es gab folgenden Fehler: Error: Unknown function ensure_packages at /tmp/vagrant-puppet/modules-33ebedc53dc8bbda276f80f73ef8a26c/gcc/manifests/init.pp:17 on node vagrant-ubuntu-trusty-64.fritz.box
+# -> auskommentiert modules/gcc/manifests/init.pp ensure...
+class { "rubybuild":
+  ruby_version => "2.2.2",
+
 }
+
+
 
 #class { 'apache2::install': }
 #class { 'php5::install': }

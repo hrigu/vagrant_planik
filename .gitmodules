@@ -1,3 +1,6 @@
 [submodule "puppet/modules/ruby"]
 	path = puppet/modules/ruby
 	url = https://github.com/puppetlabs/puppetlabs-ruby.git
+[submodule "puppet/modules/rbenv"]
+	path = puppet/modules/rbenv
+	url = https://github.com/justindowning/puppet-rbenv.git

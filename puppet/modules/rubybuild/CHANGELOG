@@ -1,0 +1,42 @@
+# 0.1.5
+
+Released: 2015-01-24
+
+* fix puppet-lint warnings
+* metadata: add more infos
+
+# 0.1.4
+
+Released: 2014-11-11
+
+* bug: fix fetching ruby-build when updating from already installed module
+
+# 0.1.3
+
+Released: 2014-11-10
+
+* use puppetlabs/gcc module instead of hardcoded dependency
+* bump default ruby to 2.1.3
+* move from Modulefile to metadata.json
+
+# 0.1.2
+
+Released: 2014-05-15
+
+* bump default ruby to 2.1.2
+
+# 0.1.1
+
+Released: 2014-03-08
+
+* bug: install: remove old ruby-build files and folders before installing
+* bug: update: more robust checking if rubybuild is there and up to date
+
+# 0.1.0
+
+Released: 2014-03-05
+
+* add ruby update handling
+* add $ruby_path configuration option to set static ruby path
+* bug #2: check for the correct $ruby_install_path if $version_in_dir is false (thanks https://github.com/krakatoa)
+* add CHANGELOG
