@@ -22,4 +22,10 @@ class mysql::install {
     command     => "mysqladmin -uroot password ${password}",
   }
 
+  exec {"peopleplanning":
+    unless => "mysql -uroot -p${password} peopleplanning",
+    command => "mysql -uroot -p${password} -e 'create database peopleplanning'",
+    require => Exec["Set MySQL server\'s root password"]
+}
+
 }

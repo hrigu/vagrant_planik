@@ -50,6 +50,7 @@ class { 'webapp::install': }
 class { 'apache2::install': }
 
 class { 'php5::install': }
+class { 'mysql::install': }
 
 
 #class { 'php5::install': }
