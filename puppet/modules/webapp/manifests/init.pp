@@ -14,6 +14,9 @@ class webapp::install {
     "/home/vagrant/web_root/www/index.html":
       source => "puppet:///modules/webapp/index.html",
   }
-
+  file {
+    "/home/vagrant/web_root/www/test.php":
+      source => "puppet:///modules/webapp/test.php",
+  }
 
 }
