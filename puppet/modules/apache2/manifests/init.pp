@@ -26,7 +26,7 @@ class apache2::install {
 
   file {
     "/etc/apache2/sites-available/planik.conf":
-      source => "puppet:///modules/apache2/planik.conf",
+      source => "puppet:///modules/apache2/rack_example.conf",
       mode => 644,
       owner => root,
       group => root

@@ -46,12 +46,12 @@ file { '/usr/bin/irb':
   target => '/opt/ruby/bin/irb',
 }
 
-class { 'webapp::install': }
+class { 'webapp::install_rack_example': }
 class { 'apache2::install': }
 
 class { 'php5::install': }
 class { 'mysql::install': }
-
+class {'passenger::install': }
 
 #class { 'php5::install': }
 #class { 'mysql::install': }
