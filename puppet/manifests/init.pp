@@ -23,14 +23,15 @@ Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin"
 # git submodule add https://github.com/justindowning/puppet-rbenv.git puppet/modules/rbenv
 # class { 'rbenv': }
 
-
-
-# Es gab folgenden Fehler: Error: Unknown function ensure_packages at /tmp/vagrant-puppet/modules-33ebedc53dc8bbda276f80f73ef8a26c/gcc/manifests/init.pp:17 on node vagrant-ubuntu-trusty-64.fritz.box
+# !!Es gab folgenden Fehler: Error: Unknown function ensure_packages at /tmp/vagrant-puppet/modules-33ebedc53dc8bbda276f80f73ef8a26c/gcc/manifests/init.pp:17 on node vagrant-ubuntu-trusty-64.fritz.box
 # -> auskommentiert modules/gcc/manifests/init.pp ensure...
-
+# !! puppet funktioniert dann nicht mehr. (/usr/bin/puppet:3:in `require': no such file to load -- puppet/util/command_line (LoadError)
+# puppet wieder installieren (sudo gem install puppet -v 3.7.5)
 # Installiert es unter /opt/2.2.2 und macht einen /opt/ruby link auf /opt/2.2.2
+
+
 class { "rubybuild":
-  ruby_version => "2.2.2",
+  ruby_version => "2.1.6",
 }
 file { '/usr/bin/ruby':
   ensure => 'link',
@@ -45,8 +46,8 @@ file { '/usr/bin/irb':
   target => '/opt/ruby/bin/irb',
 }
 
+class { 'webapp::install': }
+class { 'apache2::install': }
 
-
-#class { 'apache2::install': }
 #class { 'php5::install': }
 #class { 'mysql::install': }

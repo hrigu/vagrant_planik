@@ -1,6 +1,6 @@
 # Install MySQL
 # Kopiert vom github repo 'vagrantpress'
-# TODO: Passwort fix installiert
+# TODO: Passwort fix definiert. Herausnehmen
 class mysql::install {
 
   $password = 'nath'
