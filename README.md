@@ -1,9 +1,14 @@
 # VagrantPlanik
+Experimentelles Puppet Provisioning um eine produktive Umgebung aufzuziehen.
 
-*VagrantPlanik* 
-
-# What's Installed
-
+# Vagrant
 + Ubuntu Trusty (14.04)
-+ git (git module)
++ Git
+
+# Puppet
++ apache2
++ mysql
++ php5
++ passenger
++ Demo Rack App
 
