@@ -7,3 +7,6 @@
 [submodule "puppet/modules/firewall"]
 	path = puppet/modules/firewall
 	url = git@github.com:puppetlabs/puppetlabs-firewall.git
+[submodule "puppet/modules/rubybuild"]
+	path = puppet/modules/rubybuild
+	url = git@github.com:benben/puppet-rubybuild.git
