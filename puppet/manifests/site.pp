@@ -29,6 +29,7 @@ Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin"
 # puppet wieder installieren (sudo gem install puppet -v 3.7.5)
 # Installiert es unter /opt/2.2.2 und macht einen /opt/ruby link auf /opt/2.2.2
 
+class { 'stdlib': }
 
 class { "rubybuild":
   ruby_version => "2.2.2",
