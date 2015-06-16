@@ -6,9 +6,9 @@ Experimentelles Puppet Provisioning um eine produktive Umgebung aufzuziehen.
 
 ## Auf lokaler Maschin installieren
 + Virtual Box
-+ got
++ git
 + Vagrant https://www.vagrantup.com/downloads.html (aktuell V 1.7.2)
-
++ puppet (gem install puppet)
 
 ## Vorbereitung
 + vagrant box add ubuntu/trusty64
