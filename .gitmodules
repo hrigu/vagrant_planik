@@ -12,4 +12,4 @@
 	url = git@github.com:benben/puppet-rubybuild.git
 [submodule "puppet/modules/gcc"]
 	path = puppet/modules/gcc
-	url = git@github.com:puppetlabs/puppetlabs-gcc
+	url = git@github.com:puppetlabs/puppetlabs-gcc.git
