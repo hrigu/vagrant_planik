@@ -31,20 +31,20 @@ Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin"
 
 
 class { "rubybuild":
-  ruby_version => "2.1.6",
+  ruby_version => "2.2.2",
 }
-file { '/usr/bin/ruby':
-  ensure => 'link',
-  target => '/opt/ruby/bin/ruby', # Was ist mit den anderen Tools in /opt/ruby/bin? (erb)
-}
-file { '/usr/bin/gem':
-  ensure => 'link',
-  target => '/opt/ruby/bin/gem',
-}
-file { '/usr/bin/irb':
-  ensure => 'link',
-  target => '/opt/ruby/bin/irb',
-}
+#file { '/usr/bin/ruby':
+#  ensure => 'link',
+#  target => '/opt/ruby/bin/ruby', # Was ist mit den anderen Tools in /opt/ruby/bin? (erb)
+#}
+#file { '/usr/bin/gem':
+#  ensure => 'link',
+#  target => '/opt/ruby/bin/gem',
+#}
+#file { '/usr/bin/irb':
+#  ensure => 'link',
+#  target => '/opt/ruby/bin/irb',
+#}
 
 class { 'webapp::install_rack_example': }
 class { 'apache2::install': }
@@ -52,6 +52,17 @@ class { 'apache2::install': }
 class { 'php5::install': }
 class { 'mysql::install': }
 class {'passenger::install': }
+
+class {'profiles::firewall':}
+
+firewall { '021 Allow HTTP':
+  dport => '80',
+  proto => 'tcp',
+  action => 'accept',
+}
+
+
+
 
 #class { 'php5::install': }
 #class { 'mysql::install': }
