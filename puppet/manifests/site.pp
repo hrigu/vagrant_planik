@@ -30,10 +30,20 @@ Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin"
 # Installiert es unter /opt/2.2.2 und macht einen /opt/ruby link auf /opt/2.2.2
 
 class { 'stdlib': }
+class {'make':}
 
-class { "rubybuild":
-  ruby_version => "2.2.2",
-}
+#class { "rubybuild":
+#  ruby_version => "2.2.2",
+#
+#
+#}
+
+
+class { 'rbenv': }
+rbenv::plugin { [ 'sstephenson/rbenv-vars', 'sstephenson/ruby-build' ]: }
+rbenv::build { '2.2.2': global => true }
+rbenv::gem { 'rack': ruby_version => '2.2.2' }
+
 #file { '/usr/bin/ruby':
 #  ensure => 'link',
 #  target => '/opt/ruby/bin/ruby', # Was ist mit den anderen Tools in /opt/ruby/bin? (erb)
@@ -48,11 +58,24 @@ class { "rubybuild":
 #}
 
 class { 'webapp::install_rack_example': }
-class { 'apache2::install': }
+class { 'my_apache2::install': }
 
 class { 'php5::install': }
 class { 'mysql::install': }
-class {'passenger::install': }
+#class {'passenger::install': }
+
+
+class {'passenger':
+  passenger_version      => '5.0.10',
+  passenger_provider     => 'gem',
+  passenger_package      => 'passenger',
+  #gem_path               => '/var/lib/gems/1.8/gems',
+  #gem_binary_path        => '/var/lib/gems/1.8/bin',
+  #passenger_root         => '/var/lib/gems/1.8/gems/passenger-2.2.11'
+  #mod_passenger_location => '/var/lib/gems/1.8/gems/passenger-2.2.11/ext/apache2/mod_passenger.so',
+  include_build_tools    => true,
+}
+
 
 class {'profiles::firewall':}
 
